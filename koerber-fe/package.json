@@ -6,7 +6,8 @@
   "scripts": {
     "start": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "mocks:run": "camouflage --config camouflage-config.yml"
   },
   "dependencies": {
     "cypress": "^12.17.1",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
+    "camouflage-server": "^0.13.0",
     "daisyui": "^3.2.1",
     "eslint": "^8.45.0",
     "postcss": "^8.4.26",

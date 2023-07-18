@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import BaseTable from "./components/BaseTable.vue";
 </script>
 
 <template>
-  <button class="btn">Hello daisyui</button>
+  <BaseTable />
 </template>

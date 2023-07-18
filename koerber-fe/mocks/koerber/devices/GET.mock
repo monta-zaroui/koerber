@@ -1,0 +1,367 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+Response-Delay: 500
+
+[
+  {
+    "DeviceName": "Samsung Galaxy S21",
+    "DeviceType": "Smartphone",
+    "OwnerName": "John Smith",
+    "BatteryStatus": 80
+  },
+  {
+    "DeviceName": "Samsung Galaxy S22",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Emma Johnson",
+    "BatteryStatus": 60
+  },
+  {
+    "DeviceName": "iPhone 11 Pro",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Michael Davis",
+    "BatteryStatus": 40
+  },
+  {
+    "DeviceName": "iPhone 12 Pro Max",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Sarah Wilson",
+    "BatteryStatus": 95
+  },
+  {
+    "DeviceName": "Google Pixel 5",
+    "DeviceType": "Smartphone",
+    "OwnerName": "David Roberts",
+    "BatteryStatus": 75
+  },
+  {
+    "DeviceName": "Google Pixel 6",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Olivia Johnson",
+    "BatteryStatus": 90
+  },
+  {
+    "DeviceName": "iPad Air",
+    "DeviceType": "Tablet",
+    "OwnerName": "William Davis",
+    "BatteryStatus": 50
+  },
+  {
+    "DeviceName": "iPad Pro",
+    "DeviceType": "Tablet",
+    "OwnerName": "Sophia Wilson",
+    "BatteryStatus": 70
+  },
+  {
+    "DeviceName": "Canon EOS 5D Mark IV",
+    "DeviceType": "Camera",
+    "OwnerName": "Ethan Smith",
+    "BatteryStatus": 30
+  },
+  {
+    "DeviceName": "Nikon D850",
+    "DeviceType": "Camera",
+    "OwnerName": "Ava Anderson",
+    "BatteryStatus": 85
+  },
+  {
+    "DeviceName": "OnePlus 9 Pro",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Jacob Brown",
+    "BatteryStatus": 55
+  },
+  {
+    "DeviceName": "Xiaomi Mi 11",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Isabella Johnson",
+    "BatteryStatus": 65
+  },
+  {
+    "DeviceName": "Sony Xperia 1 III",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Mia Thompson",
+    "BatteryStatus": 45
+  },
+  {
+    "DeviceName": "LG G8 ThinQ",
+    "DeviceType": "Smartphone",
+    "OwnerName": "James Wilson",
+    "BatteryStatus": 85
+  },
+  {
+    "DeviceName": "Huawei P40 Pro",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Charlotte Davis",
+    "BatteryStatus": 75
+  },
+  {
+    "DeviceName": "iPad Mini",
+    "DeviceType": "Tablet",
+    "OwnerName": "Noah Anderson",
+    "BatteryStatus": 60
+  },
+  {
+    "DeviceName": "Microsoft Surface Pro 7",
+    "DeviceType": "Tablet",
+    "OwnerName": "Emily Thompson",
+    "BatteryStatus": 80
+  },
+  {
+    "DeviceName": "Fujifilm X-T4",
+    "DeviceType": "Camera",
+    "OwnerName": "Benjamin Wilson",
+    "BatteryStatus": 25
+  },
+  {
+    "DeviceName": "Sony Alpha A7 III",
+    "DeviceType": "Camera",
+    "OwnerName": "Sophia Davis",
+    "BatteryStatus": 95
+  },
+  {
+    "DeviceName": "Motorola Edge Plus",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Elijah Anderson",
+    "BatteryStatus": 70
+  },
+  {
+    "DeviceName": "Google Pixel 4a",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Olivia Smith",
+    "BatteryStatus": 50
+  },
+  {
+    "DeviceName": "iPhone SE (2020)",
+    "DeviceType": "Smartphone",
+    "OwnerName": "William Johnson",
+    "BatteryStatus": 90
+  },
+  {
+    "DeviceName": "Samsung Galaxy Tab S7",
+    "DeviceType": "Tablet",
+    "OwnerName": "Emma Davis",
+    "BatteryStatus": 40
+  },
+  {
+    "DeviceName": "Lenovo Tab M10 Plus",
+    "DeviceType": "Tablet",
+    "OwnerName": "Michael Wilson",
+    "BatteryStatus": 80
+  },
+  {
+    "DeviceName": "Nikon Z7 II",
+    "DeviceType": "Camera",
+    "OwnerName": "Ava Johnson",
+    "BatteryStatus": 60
+  },
+  {
+    "DeviceName": "Canon EOS R6",
+    "DeviceType": "Camera",
+    "OwnerName": "Ethan Davis",
+    "BatteryStatus": 75
+  },
+  {
+    "DeviceName": "OnePlus 8T",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Sophia Roberts",
+    "BatteryStatus": 85
+  },
+  {
+    "DeviceName": "Xiaomi Redmi Note 10 Pro",
+    "DeviceType": "Smartphone",
+    "OwnerName": "David Wilson",
+    "BatteryStatus": 45
+  },
+  {
+    "DeviceName": "Sony Xperia 5 II",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Olivia Thompson",
+    "BatteryStatus": 70
+  },
+  {
+    "DeviceName": "LG Velvet",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Noah Roberts",
+    "BatteryStatus": 55
+  },
+  {
+    "DeviceName": "Huawei Mate 40 Pro",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Emma Anderson",
+    "BatteryStatus": 65
+  },
+  {
+    "DeviceName": "Samsung Galaxy Note 20 Ultra",
+    "DeviceType": "Smartphone",
+    "OwnerName": "James Smith",
+    "BatteryStatus": 80
+  },
+  {
+    "DeviceName": "iPad",
+    "DeviceType": "Tablet",
+    "OwnerName": "Charlotte Johnson",
+    "BatteryStatus": 75
+  },
+  {
+    "DeviceName": "Microsoft Surface Go 2",
+    "DeviceType": "Tablet",
+    "OwnerName": "Isabella Davis",
+    "BatteryStatus": 60
+  },
+  {
+    "DeviceName": "Fujifilm X-T30",
+    "DeviceType": "Camera",
+    "OwnerName": "Benjamin Johnson",
+    "BatteryStatus": 85
+  },
+  {
+    "DeviceName": "Sony Alpha A6600",
+    "DeviceType": "Camera",
+    "OwnerName": "Sophia Anderson",
+    "BatteryStatus": 25
+  },
+  {
+    "DeviceName": "Motorola Razr 5G",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Elijah Smith",
+    "BatteryStatus": 90
+  },
+  {
+    "DeviceName": "Google Pixel 3a",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Olivia Johnson",
+    "BatteryStatus": 40
+  },
+  {
+    "DeviceName": "iPhone XR",
+    "DeviceType": "Smartphone",
+    "OwnerName": "William Davis",
+    "BatteryStatus": 70
+  },
+  {
+    "DeviceName": "Samsung Galaxy Tab A7",
+    "DeviceType": "Tablet",
+    "OwnerName": "Emma Wilson",
+    "BatteryStatus": 50
+  },
+  {
+    "DeviceName": "Lenovo Smart Tab M10",
+    "DeviceType": "Tablet",
+    "OwnerName": "Michael Johnson",
+    "BatteryStatus": 80
+  },
+  {
+    "DeviceName": "Nikon D5600",
+    "DeviceType": "Camera",
+    "OwnerName": "Ava Smith",
+    "BatteryStatus": 60
+  },
+  {
+    "DeviceName": "Canon EOS Rebel T7i",
+    "DeviceType": "Camera",
+    "OwnerName": "Ethan Wilson",
+    "BatteryStatus": 75
+  },
+  {
+    "DeviceName": "OnePlus Nord",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Sophia Roberts",
+    "BatteryStatus": 85
+  },
+  {
+    "DeviceName": "Xiaomi Redmi Note 9 Pro",
+    "DeviceType": "Smartphone",
+    "OwnerName": "David Johnson",
+    "BatteryStatus": 45
+  },
+  {
+    "DeviceName": "Sony Xperia 10 II",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Olivia Smith",
+    "BatteryStatus": 70
+  },
+  {
+    "DeviceName": "LG Wing",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Noah Anderson",
+    "BatteryStatus": 55
+  },
+  {
+    "DeviceName": "Huawei P30 Pro",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Emma Wilson",
+    "BatteryStatus": 65
+  },
+  {
+    "DeviceName": "Samsung Galaxy A52",
+    "DeviceType": "Smartphone",
+    "OwnerName": "James Smith",
+    "BatteryStatus": 80
+  },
+  {
+    "DeviceName": "iPad Pro (11-inch)",
+    "DeviceType": "Tablet",
+    "OwnerName": "Charlotte Davis",
+    "BatteryStatus": 75
+  },
+  {
+    "DeviceName": "Microsoft Surface Book 3",
+    "DeviceType": "Tablet",
+    "OwnerName": "Isabella Thompson",
+    "BatteryStatus": 60
+  },
+  {
+    "DeviceName": "Fujifilm X100V",
+    "DeviceType": "Camera",
+    "OwnerName": "Benjamin Johnson",
+    "BatteryStatus": 85
+  },
+  {
+    "DeviceName": "Sony Alpha A7C",
+    "DeviceType": "Camera",
+    "OwnerName": "Sophia Wilson",
+    "BatteryStatus": 25
+  },
+  {
+    "DeviceName": "Motorola Edge",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Elijah Thompson",
+    "BatteryStatus": 90
+  },
+  {
+    "DeviceName": "Google Pixel 4 XL",
+    "DeviceType": "Smartphone",
+    "OwnerName": "Olivia Davis",
+    "BatteryStatus": 40
+  },
+  {
+    "DeviceName": "iPhone 8 Plus",
+    "DeviceType": "Smartphone",
+    "OwnerName": "William Johnson",
+    "BatteryStatus": 70
+  },
+  {
+    "DeviceName": "Samsung Galaxy Tab S6 Lite",
+    "DeviceType": "Tablet",
+    "OwnerName": "Emma Smith",
+    "BatteryStatus": 50
+  },
+  {
+    "DeviceName": "Lenovo Yoga Smart Tab",
+    "DeviceType": "Tablet",
+    "OwnerName": "Michael Wilson",
+    "BatteryStatus": 80
+  },
+  {
+    "DeviceName": "Nikon Z50",
+    "DeviceType": "Camera",
+    "OwnerName": "Ava Anderson",
+    "BatteryStatus": 60
+  },
+  {
+    "DeviceName": "Canon EOS M50",
+    "DeviceType": "Camera",
+    "OwnerName": "Ethan Davis",
+    "BatteryStatus": 75
+  }
+]
