@@ -10,4 +10,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compress());
 
+// setup database
+import sequelize from './database/db.js';
+sequelize.sync().then(() => {
+  console.log('Database & tables created!');
+});
+
 export default app;
