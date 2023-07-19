@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { Device } from '../models/device.model';
 import axios, { AxiosError } from 'axios';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 interface IStore {
   devices: Device[];
@@ -20,8 +20,9 @@ export const useDeviceStore = defineStore('device', () => {
   async function fetchDevices(): Promise<void> {
     state.value.loading = true;
     try {
-      const response = await axios.get<Device[]>('http://localhost:3000/koerber/devices');
+      const response = await axios.get<Device[]>('http://localhost:3007/koerber/devices');
       state.value.devices = response.data;
+      console.log(state.value.devices);
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
@@ -63,10 +64,10 @@ export const useDeviceStore = defineStore('device', () => {
   }
 
   return {
-    devices: state.value.devices,
-    selectedDevice: state.value.selectedDevice,
-    loading: state.value.loading,
-    error: state.value.error,
+    devices: computed(() => state.value.devices),
+    selectedDevice: computed(() => state.value.selectedDevice),
+    loading: computed(() => state.value.loading),
+    error: computed(() => state.value.error),
     fetchDevices,
     addDevice,
     updateDevice,

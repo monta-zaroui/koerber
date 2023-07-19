@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Device } from '../models/device.model.ts';
+
+defineProps<{
+  devices: Device[];
+}>();
+</script>
 
 <template>
   <div class="overflow-x-auto">
@@ -13,12 +19,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td>Iphone 14 Pro</td>
-          <td>Phone</td>
-          <td>Montassar Zaroui</td>
-          <td>100%</td>
+        <tr v-for="(device, index) in devices" :key="index">
+          <th>{{ index }}</th>
+          <td>{{ device.name }}</td>
+          <td>{{ device.type }}</td>
+          <td>{{ device.ownerName }}</td>
+          <td>{{ device.batteryStatus }}</td>
         </tr>
       </tbody>
     </table>
