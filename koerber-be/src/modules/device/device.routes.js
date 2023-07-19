@@ -92,3 +92,5 @@ router.delete('/:id', async (req, res) => {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json(error.message);
   }
 });
+
+export default router;
