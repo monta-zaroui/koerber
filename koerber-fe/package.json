@@ -10,6 +10,11 @@
     "mocks:run": "camouflage --config camouflage-config.yml"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
     "axios": "^1.4.0",
     "cypress": "^12.17.1",
     "pinia": "^2.1.4",
