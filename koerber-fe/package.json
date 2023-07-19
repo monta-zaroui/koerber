@@ -10,6 +10,7 @@
     "mocks:run": "camouflage --config camouflage-config.yml"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "cypress": "^12.17.1",
     "pinia": "^2.1.4",
     "vue": "^3.3.4"
