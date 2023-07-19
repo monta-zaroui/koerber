@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import BaseTable from './components/BaseTable.vue';
+import DevicesTable from './components/DevicesTable.vue';
 </script>
 
 <template>
-  <BaseTable />
+  <DevicesTable />
 </template>

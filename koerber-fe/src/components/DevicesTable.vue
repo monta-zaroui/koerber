@@ -37,6 +37,10 @@ const sortIcon = computed(() => {
     return '';
   };
 });
+
+const isIconVisible = computed(() => {
+  return (column: keyof Device) => sortConfig.column === column;
+});
 </script>
 
 <template>
@@ -47,19 +51,23 @@ const sortIcon = computed(() => {
           <th></th>
           <td @click="sortDevices('name')">
             <span>Device Name</span>
-            <font-awesome-icon class="pl-2" :icon="['fas', sortIcon('name')]" />
+            <font-awesome-icon class="pl-2" v-if="isIconVisible('name')" :icon="['fas', sortIcon('name')]" />
           </td>
           <td @click="sortDevices('type')">
             <span>Device Device Type</span>
-            <font-awesome-icon class="pl-2" :icon="['fas', sortIcon('type')]" />
+            <font-awesome-icon v-if="isIconVisible('type')" class="pl-2" :icon="['fas', sortIcon('type')]" />
           </td>
           <td @click="sortDevices('ownerName')">
             <span>Device Owner</span>
-            <font-awesome-icon class="pl-2" :icon="['fas', sortIcon('ownerName')]" />
+            <font-awesome-icon v-if="isIconVisible('ownerName')" class="pl-2" :icon="['fas', sortIcon('ownerName')]" />
           </td>
           <td @click="sortDevices('batteryStatus')">
             <span>Battery Status</span>
-            <font-awesome-icon class="pl-2" :icon="['fas', sortIcon('batteryStatus')]" />
+            <font-awesome-icon
+              v-if="isIconVisible('batteryStatus')"
+              class="pl-2"
+              :icon="['fas', sortIcon('batteryStatus')]"
+            />
           </td>
           <td colspan="2"></td>
         </tr>
