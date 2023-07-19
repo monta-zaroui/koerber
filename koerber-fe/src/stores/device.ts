@@ -7,6 +7,7 @@ import { SortConfig } from '../models/sort.model.ts';
 interface IStore {
   devices: Device[];
   selectedDevice: Device;
+  searchValue: string;
   loading: boolean;
   error: AxiosError | null;
 }
@@ -14,6 +15,7 @@ export const useDeviceStore = defineStore('device', () => {
   const state = ref<IStore>({
     devices: [],
     selectedDevice: {} as Device,
+    searchValue: '',
     loading: false,
     error: null
   });
@@ -73,8 +75,10 @@ export const useDeviceStore = defineStore('device', () => {
   }
 
   return {
+    state,
     devices: computed(() => state.value.devices),
     selectedDevice: computed(() => state.value.selectedDevice),
+    searchValue: computed(() => state.value.searchValue),
     loading: computed(() => state.value.loading),
     error: computed(() => state.value.error),
     fetchDevices,
