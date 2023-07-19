@@ -17,6 +17,15 @@ onMounted(() => {
   deviceStore.fetchDevices();
 });
 
+const sortIcon = computed(() => {
+  return (column: keyof Device) => {
+    if (sortConfig.column === column) {
+      return sortConfig.order === 'asc' ? 'sort-up' : 'sort-down';
+    }
+    return '';
+  };
+});
+
 const sortDevices = (column: keyof Device) => {
   if (sortConfig.column === column) {
     sortConfig.order = sortConfig.order === 'asc' ? 'desc' : 'asc';
@@ -26,17 +35,6 @@ const sortDevices = (column: keyof Device) => {
   }
   deviceStore.sortDevices(sortConfig);
 };
-
-// currying computed with param to avoid reactivity issues
-
-const sortIcon = computed(() => {
-  return (column: keyof Device) => {
-    if (sortConfig.column === column) {
-      return sortConfig.order === 'asc' ? 'sort-up' : 'sort-down';
-    }
-    return '';
-  };
-});
 
 const isIconVisible = computed(() => {
   return (column: keyof Device) => sortConfig.column === column;
