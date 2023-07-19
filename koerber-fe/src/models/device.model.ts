@@ -1,4 +1,4 @@
-enum type {
+enum TYPE {
   SMARTPHONE,
   TABLET,
   Camera
@@ -6,7 +6,7 @@ enum type {
 export interface Device {
   id: string;
   name: string;
-  type: type;
+  type: TYPE;
   ownerName: string;
   batteryStatus: number;
 }

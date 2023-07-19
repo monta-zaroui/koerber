@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { Device } from '../models/device.model';
 import axios, { AxiosError } from 'axios';
 import { computed, ref } from 'vue';
+import { SortConfig } from '../models/sort.model.ts';
 
 interface IStore {
   devices: Device[];
@@ -62,6 +63,15 @@ export const useDeviceStore = defineStore('device', () => {
       state.value.loading = false;
     }
   }
+  function sortDevices(config: SortConfig<Device>): void {
+    const { column, order } = config;
+    state.value.devices.sort((a: Device, b: Device) => {
+      if (order === 'asc') {
+        return a[column] > b[column] ? 1 : -1;
+      }
+      return a[column] < b[column] ? 1 : -1;
+    });
+  }
 
   return {
     devices: computed(() => state.value.devices),
@@ -69,6 +79,7 @@ export const useDeviceStore = defineStore('device', () => {
     loading: computed(() => state.value.loading),
     error: computed(() => state.value.error),
     fetchDevices,
+    sortDevices,
     addDevice,
     updateDevice,
     deleteDevice
