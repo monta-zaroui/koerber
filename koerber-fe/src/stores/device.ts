@@ -23,7 +23,6 @@ export const useDeviceStore = defineStore('device', () => {
     try {
       const response = await axios.get<Device[]>('http://localhost:3007/koerber/devices');
       state.value.devices = response.data;
-      console.log(state.value.devices);
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
