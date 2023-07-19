@@ -1,0 +1,9 @@
+{
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "none",
+  "--vue-indent-script-and-style": true,
+  "--html-whitespace-sensitivity": "strict",
+  "bracketSpacing": true,
+  "printWidth": 120
+}
