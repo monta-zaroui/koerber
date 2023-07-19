@@ -3,7 +3,7 @@ enum DeviceType {
   TABLET,
   Camera
 }
-export type Device = {
+export interface Device {
   id: string;
   name: string;
   type: DeviceType;
