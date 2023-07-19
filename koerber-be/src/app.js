@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import compress from 'compression';
 import cors from 'cors';
 import express from 'express';
+import routes from './routes.js';
 
 const app = express();
 
@@ -15,5 +16,7 @@ import sequelize from './database/db.js';
 sequelize.sync().then(() => {
   console.log('Database & tables created!');
 });
+
+app.use('/', routes);
 
 export default app;
