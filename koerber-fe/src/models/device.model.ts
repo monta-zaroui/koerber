@@ -10,3 +10,10 @@ export interface Device {
   ownerName: string;
   batteryStatus: number;
 }
+
+export const newDevice = {
+  name: '',
+  type: DEVICE_TYPE.SMARTPHONE,
+  ownerName: '',
+  batteryStatus: 0
+};
