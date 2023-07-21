@@ -11,9 +11,14 @@ const deviceStore = useDeviceStore();
 <template>
   <div class="container mx-auto mt-4">
     <BaseNavBar>
-      <div class="join w-full">
-        <BaseInput v-model="deviceStore.state.searchValue" placeholder="Search..." type="text" />
-        <BaseDropdown :items="['All', 'Online', 'Offline']" />
+      <div class="flex justify-between w-full gap-2">
+        <div class="join w-full">
+          <BaseInput v-model="deviceStore.state.searchValue" placeholder="Search..." type="text" />
+          <BaseDropdown />
+        </div>
+        <div class="w-full">
+          <button class="btn btn-neutral float-right"><font-awesome-icon :icon="['fas', 'plus']" /> Add Device</button>
+        </div>
       </div>
     </BaseNavBar>
     <DevicesTable class="mt-20" />

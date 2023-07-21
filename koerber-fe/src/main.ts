@@ -9,10 +9,10 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* import specific icons */
-import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
+import { faSortUp, faSortDown, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 /* add icons to the library */
-library.add(faSortUp, faSortDown);
+library.add(faSortUp, faSortDown, faPlus);
 
 const pinia = createPinia();
 const app = createApp(App);
