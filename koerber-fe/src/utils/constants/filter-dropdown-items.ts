@@ -14,7 +14,7 @@ export const filterDropdownItems: DropdownItem[] = [
     value: 'type'
   },
   {
-    label: 'Owner Name',
+    label: 'Device Owner',
     value: 'ownerName'
   },
   {
