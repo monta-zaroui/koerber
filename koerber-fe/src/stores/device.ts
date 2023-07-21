@@ -2,12 +2,13 @@ import { defineStore } from 'pinia';
 import { Device } from '../models/device.model';
 import axios, { AxiosError } from 'axios';
 import { computed, ref } from 'vue';
-import { SortConfig } from '../models/sort.model.ts';
+import { SortConfig } from '../models/sort.model';
 
 interface IStore {
   devices: Device[];
   selectedDevice: Device;
   searchValue: string;
+  filterValue: string;
   loading: boolean;
   error: AxiosError | null;
 }
@@ -16,8 +17,22 @@ export const useDeviceStore = defineStore('device', () => {
     devices: [],
     selectedDevice: {} as Device,
     searchValue: '',
+    filterValue: 'all',
     loading: false,
     error: null
+  });
+
+  const filterDevices = computed((): Device[] => {
+    if (state.value.filterValue === 'all') {
+      return state.value.devices.filter((device: Device) => {
+        const searchableAttributes = Object.values(device).slice(1).join(' ');
+        return searchableAttributes.toLowerCase().includes(state.value.searchValue.toLowerCase());
+      });
+    }
+    return state.value.devices.filter((device: Device) => {
+      const item: string = device[state.value.filterValue as keyof Device].toString().toLowerCase();
+      return item.includes(state.value.searchValue.toLowerCase());
+    });
   });
 
   async function fetchDevices(): Promise<void> {
@@ -81,6 +96,7 @@ export const useDeviceStore = defineStore('device', () => {
     searchValue: computed(() => state.value.searchValue),
     loading: computed(() => state.value.loading),
     error: computed(() => state.value.error),
+    filterDevices,
     fetchDevices,
     sortDevices,
     addDevice,

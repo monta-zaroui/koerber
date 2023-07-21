@@ -10,7 +10,7 @@ defineEmits(['update:modelValue']);
 
 <template>
   <input
-    class="input input-bordered input-md w-full max-w-xs"
+    class="input join-item input-bordered input-md w-full max-w-sm"
     :type="props.type"
     :placeholder="props.placeholder"
     :value="modelValue"

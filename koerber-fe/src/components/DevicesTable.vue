@@ -6,7 +6,7 @@ import { SortConfig } from '../models/sort.model.ts';
 import { Device } from '../models/device.model.ts';
 
 const deviceStore = useDeviceStore();
-const { devices, loading } = storeToRefs(deviceStore);
+const { filterDevices, loading } = storeToRefs(deviceStore);
 
 const sortConfig: SortConfig<Device> = {
   column: 'id',
@@ -56,7 +56,7 @@ const isIconVisible = computed(() => {
               <font-awesome-icon class="pl-2" v-if="isIconVisible('name')" :icon="['fas', sortIcon('name')]" />
             </td>
             <td @click="sortDevices('type')">
-              <span>Device Device Type</span>
+              <span>Device Type</span>
               <font-awesome-icon v-if="isIconVisible('type')" class="pl-2" :icon="['fas', sortIcon('type')]" />
             </td>
             <td @click="sortDevices('ownerName')">
@@ -79,7 +79,7 @@ const isIconVisible = computed(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(device, index) in devices" :key="index">
+          <tr v-for="(device, index) in filterDevices" :key="index">
             <th>{{ index + 1 }}</th>
             <td>{{ device.name }}</td>
             <td>{{ device.type }}</td>
@@ -91,3 +91,13 @@ const isIconVisible = computed(() => {
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+table {
+  thead {
+    td:hover {
+      cursor: pointer;
+    }
+  }
+}
+</style>
