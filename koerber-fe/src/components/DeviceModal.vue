@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import BaseInput from './BaseInput.vue';
 import { newDevice } from '../models/device.model';
 import BaseDropdown from './BaseDropdown.vue';
 import { deviceTypeDropdownItems } from '../utils/constants/device-type-dropdown-items';
 
 const showModal = ref(false);
+
+const isSaveButtonDisabled = computed(() => {
+  return newDevice.value.name === '' || newDevice.value.ownerName === '';
+});
 function toggleModal(): void {
   showModal.value = !showModal.value;
 }
@@ -34,7 +38,7 @@ function toggleModal(): void {
         </div>
         <div class="modal-action">
           <button class="btn" @click="toggleModal">Close modal</button>
-          <button class="btn btn-neutral" @click="toggleModal">Save Device</button>
+          <button class="btn btn-neutral" :disabled="isSaveButtonDisabled" @click="toggleModal">Save Device</button>
         </div>
       </div>
     </div>
