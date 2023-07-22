@@ -4,6 +4,8 @@ import BaseNavBar from './components/BaseNavBar.vue';
 import BaseInput from './components/BaseInput.vue';
 import { useDeviceStore } from './stores/device.ts';
 import BaseDropdown from './components/BaseDropdown.vue';
+import DeviceModal from './components/DeviceModal.vue';
+import { filterDropdownItems } from './utils/constants/filter-dropdown-items';
 
 const deviceStore = useDeviceStore();
 </script>
@@ -11,13 +13,13 @@ const deviceStore = useDeviceStore();
 <template>
   <div class="container mx-auto mt-4">
     <BaseNavBar>
-      <div class="flex justify-between w-full gap-2">
+      <div class="flex w-full">
         <div class="join w-full">
           <BaseInput v-model="deviceStore.state.searchValue" placeholder="Search..." type="text" />
-          <BaseDropdown />
+          <BaseDropdown v-model="deviceStore.state.filterValue" :items="filterDropdownItems" />
         </div>
         <div class="w-full">
-          <button class="btn btn-neutral float-right"><font-awesome-icon :icon="['fas', 'plus']" /> Add Device</button>
+          <DeviceModal />
         </div>
       </div>
     </BaseNavBar>
