@@ -11,7 +11,8 @@ export interface Device {
   batteryStatus: number;
 }
 
-export const newDevice = {
+export const newDevice: Device = {
+  id: '',
   name: '',
   type: DEVICE_TYPE.SMARTPHONE,
   ownerName: '',

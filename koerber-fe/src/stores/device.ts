@@ -17,7 +17,7 @@ interface IStore {
 export const useDeviceStore = defineStore('device', () => {
   const state = ref<IStore>({
     devices: [],
-    selectedDevice: { ...newDevice } as Device,
+    selectedDevice: newDevice,
     searchValue: '',
     filterValue: 'all',
     showAddDeviceModal: false,
@@ -67,10 +67,9 @@ export const useDeviceStore = defineStore('device', () => {
     try {
       await axios.put('http://localhost:3007/koerber/devices', state.value.selectedDevice);
       const index = state.value.devices.findIndex((device: Device) => device.id === state.value.selectedDevice.id);
-      console.log(index);
-      console.log(state.value.devices[index]);
       Object.assign(state.value.devices[index], state.value.selectedDevice);
       state.value.selectedDevice = { ...newDevice } as Device;
+      state.value.showAddDeviceModal = false;
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {

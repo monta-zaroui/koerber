@@ -44,6 +44,10 @@ const selectDeviceAndOpenModal = (device: Device) => {
   deviceStore.state.selectedDevice = { ...device };
   deviceStore.state.showAddDeviceModal = true;
 };
+
+const capitalize = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
 </script>
 
 <template>
@@ -89,7 +93,7 @@ const selectDeviceAndOpenModal = (device: Device) => {
           <tr v-for="(device, index) in filterDevices" :key="index">
             <th>{{ index + 1 }}</th>
             <td>{{ device.name }}</td>
-            <td>{{ device.type }}</td>
+            <td>{{ capitalize(device.type.toLowerCase()) }}</td>
             <td>{{ device.ownerName }}</td>
             <td>{{ device.batteryStatus }}</td>
             <td class="flex gap-6">

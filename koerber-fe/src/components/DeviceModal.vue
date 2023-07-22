@@ -21,7 +21,6 @@ const updateDevice = () => {
   deviceStore.state.isCreatingOrUpdating = true;
   deviceStore.updateDevice().then(() => {
     deviceStore.state.isCreatingOrUpdating = false;
-    toggleModal();
   });
 };
 </script>

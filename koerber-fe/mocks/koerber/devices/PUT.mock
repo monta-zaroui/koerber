@@ -6,7 +6,7 @@ Response-Delay: 500
 {
   "id": "1",
   "name": "Samsung Galaxy S999",
-  "type": "Smartphone",
+  "type": "SMARTPHONE",
   "ownerName": "Montassar",
   "batteryStatus": 100,
 }
