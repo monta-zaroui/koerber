@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+Response-Delay: 500
+
+{
+  "id": "1",
+  "name": "Samsung Galaxy S999",
+  "type": "Smartphone",
+  "ownerName": "Montassar",
+  "batteryStatus": 100,
+}

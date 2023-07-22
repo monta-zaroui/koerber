@@ -39,6 +39,11 @@ const sortDevices = (column: keyof Device) => {
 const isIconVisible = computed(() => {
   return (column: keyof Device) => sortConfig.column === column;
 });
+
+const selectDeviceAndOpenModal = (device: Device) => {
+  deviceStore.state.selectedDevice = { ...device };
+  deviceStore.state.showAddDeviceModal = true;
+};
 </script>
 
 <template>
@@ -75,7 +80,9 @@ const isIconVisible = computed(() => {
                 :icon="['fas', sortIcon('batteryStatus')]"
               />
             </td>
-            <td colspan="2"></td>
+            <td>
+              <span>Actions</span>
+            </td>
           </tr>
         </thead>
         <tbody>
@@ -85,6 +92,14 @@ const isIconVisible = computed(() => {
             <td>{{ device.type }}</td>
             <td>{{ device.ownerName }}</td>
             <td>{{ device.batteryStatus }}</td>
+            <td class="flex gap-6">
+              <div class="hover:cursor-pointer" @click="selectDeviceAndOpenModal(device)">
+                <font-awesome-icon :icon="['fas', 'edit']" />
+              </div>
+              <div class="hover:cursor-pointer">
+                <font-awesome-icon :icon="['fas', 'trash']" />
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>

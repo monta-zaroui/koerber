@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Device } from '../models/device.model';
+import { Device, newDevice } from '../models/device.model';
 import axios, { AxiosError } from 'axios';
 import { computed, ref } from 'vue';
 import { SortConfig } from '../models/sort.model';
@@ -9,16 +9,20 @@ interface IStore {
   selectedDevice: Device;
   searchValue: string;
   filterValue: string;
+  showAddDeviceModal: boolean;
   loading: boolean;
+  isCreatingOrUpdating: boolean;
   error: AxiosError | null;
 }
 export const useDeviceStore = defineStore('device', () => {
   const state = ref<IStore>({
     devices: [],
-    selectedDevice: {} as Device,
+    selectedDevice: { ...newDevice } as Device,
     searchValue: '',
     filterValue: 'all',
+    showAddDeviceModal: false,
     loading: false,
+    isCreatingOrUpdating: false,
     error: null
   });
 
@@ -50,7 +54,7 @@ export const useDeviceStore = defineStore('device', () => {
   async function addDevice(device: Device): Promise<void> {
     state.value.loading = true;
     try {
-      await axios.post('http://localhost:3000/koerber/devices', device);
+      await axios.post('http://localhost:3007/koerber/devices', device);
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
@@ -58,21 +62,26 @@ export const useDeviceStore = defineStore('device', () => {
     }
   }
 
-  async function updateDevice(device: Device): Promise<void> {
-    state.value.loading = true;
+  async function updateDevice(): Promise<void> {
+    state.value.isCreatingOrUpdating = true;
     try {
-      await axios.put(`http://localhost:3000/koerber/devices/${device.id}`, device);
+      await axios.put('http://localhost:3007/koerber/devices', state.value.selectedDevice);
+      const index = state.value.devices.findIndex((device: Device) => device.id === state.value.selectedDevice.id);
+      console.log(index);
+      console.log(state.value.devices[index]);
+      Object.assign(state.value.devices[index], state.value.selectedDevice);
+      state.value.selectedDevice = { ...newDevice } as Device;
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
-      state.value.loading = false;
+      state.value.isCreatingOrUpdating = false;
     }
   }
 
   async function deleteDevice(id: string): Promise<void> {
     state.value.loading = true;
     try {
-      await axios.delete(`http://localhost:3000/koerber/devices/${id}`);
+      await axios.delete(`http://localhost:3007/koerber/devices/${id}`);
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
@@ -95,6 +104,7 @@ export const useDeviceStore = defineStore('device', () => {
     selectedDevice: computed(() => state.value.selectedDevice),
     searchValue: computed(() => state.value.searchValue),
     loading: computed(() => state.value.loading),
+    isCreatingOrUpdating: computed(() => state.value.isCreatingOrUpdating),
     error: computed(() => state.value.error),
     filterDevices,
     fetchDevices,

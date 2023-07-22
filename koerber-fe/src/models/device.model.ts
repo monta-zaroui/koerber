@@ -1,5 +1,3 @@
-import { ref } from 'vue';
-
 export enum DEVICE_TYPE {
   SMARTPHONE = 'SMARTPHONE',
   TABLET = 'TABLET',
@@ -13,18 +11,9 @@ export interface Device {
   batteryStatus: number;
 }
 
-export const newDevice = ref({
+export const newDevice = {
   name: '',
   type: DEVICE_TYPE.SMARTPHONE,
   ownerName: '',
   batteryStatus: 40
-});
-
-export const resetDevice = () => {
-  newDevice.value = {
-    name: '',
-    type: DEVICE_TYPE.SMARTPHONE,
-    ownerName: '',
-    batteryStatus: 40
-  };
 };
