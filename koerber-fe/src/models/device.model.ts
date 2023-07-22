@@ -19,3 +19,12 @@ export const newDevice = ref({
   ownerName: '',
   batteryStatus: 40
 });
+
+export const resetDevice = () => {
+  newDevice.value = {
+    name: '',
+    type: DEVICE_TYPE.SMARTPHONE,
+    ownerName: '',
+    batteryStatus: 40
+  };
+};
