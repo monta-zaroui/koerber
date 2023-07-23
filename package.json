@@ -1,0 +1,26 @@
+{
+  "name": "koerber",
+  "version": "1.0.0",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": {
+    "packages": [
+      "koeber-backend",
+      "koerber-frontend",
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "preinstall": "cd koerber-be && npm install && cd ../koerber-fe && npm install",
+    "start:backend": "cd koerber-be && npm start",
+    "start:frontend": "cd koerber-fe && npm run start",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "test": "cd koerber-be && npm run test"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "sass": "^1.64.1"
+  }
+}
