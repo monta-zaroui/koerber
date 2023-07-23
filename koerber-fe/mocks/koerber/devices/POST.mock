@@ -4,8 +4,8 @@ Access-Control-Allow-Origin: *
 Response-Delay: 500
 
 {
-  "id": "1",
-  "name": "Samsung Galaxy S999",
+  "id": "90",
+  "name": "Samsung Galaxy S100",
   "type": "SMARTPHONE",
   "ownerName": "Montassar",
   "batteryStatus": 100
