@@ -2,19 +2,15 @@
 
 Montassar Zaroui Koerber technical assessment
 
-## Installation
-
-In your terminal run:
-```bash
-npm install
-```
-
 ## Run the App
 
 In your terminal run:
 ```bash
-npm start
+docker compose up --build
 ```
+
+10 devices will be created and stored automatically in the database.
+
 
 ## Run tests
 
