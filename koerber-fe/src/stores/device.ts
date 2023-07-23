@@ -87,7 +87,6 @@ export const useDeviceStore = defineStore('device', () => {
     try {
       await axios.delete(`http://localhost:3007/koerber/devices/${id}`);
       const deviceIndex = state.value.devices.findIndex((device: Device) => device.id === id);
-      console.log(deviceIndex);
       state.value.devices.splice(deviceIndex, 1);
       state.value.showAddDeviceModal = false;
     } catch (error) {

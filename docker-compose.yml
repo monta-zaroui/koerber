@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  frontend:
+    build:
+      context: ./koerber-fe
+      dockerfile: Dockerfile
+    ports:
+      - "8007:8007"
+  backend:
+    build:
+      context: ./koerber-be
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - HOST=${DB_HOST}
+      - USER=${DB_USER}
+      - DATABASE=${DB_NAME}
+      - PASSWORD=${DB_PASSWORD}
+      - PORT=${DB_PORT}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres-init/init.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+    postgres-data:
