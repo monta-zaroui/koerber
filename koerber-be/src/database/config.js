@@ -1,13 +1,7 @@
-import * as dotenv from 'dotenv';
-
-dotenv.config();
-
-const config = {
-  HOST: process.env.DB_HOST || 'localhost',
-  USER: process.env.DB_USER || 'postgres',
-  PASSWORD: process.env.DB_PASSWORD || 'admin',
-  DB_NAME: process.env.DB_NAME || 'koerber',
-  dialect: 'postgres'
+export default {
+  database: 'koerber',
+  username: 'postgres',
+  password: 'postgres_password',
+  host: 'db', // Use the service name "db" to connect to the PostgreSQL container
+  port: 5432
 };
-
-export default config;

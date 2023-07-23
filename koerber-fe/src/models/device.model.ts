@@ -12,7 +12,6 @@ export interface Device {
 }
 
 export const newDevice: Device = {
-  id: '',
   name: '',
   type: DEVICE_TYPE.SMARTPHONE,
   ownerName: '',

@@ -54,6 +54,7 @@ export const useDeviceStore = defineStore('device', () => {
   async function addDevice(): Promise<void> {
     state.value.loading = true;
     try {
+      console.log('state.value.selectedDevice', state.value.selectedDevice);
       const { data } = await axios.post<Device>('http://localhost:3007/koerber/devices', state.value.selectedDevice);
       state.value.devices.push(data as Device);
       resetSelectedDevice();
@@ -68,7 +69,7 @@ export const useDeviceStore = defineStore('device', () => {
   async function updateDevice(): Promise<void> {
     state.value.isCreatingOrUpdating = true;
     try {
-      await axios.put('http://localhost:3007/koerber/devices', state.value.selectedDevice);
+      await axios.patch('http://localhost:3007/koerber/devices', state.value.selectedDevice);
       const deviceIndex = state.value.devices.findIndex(
         (device: Device) => device.id === state.value.selectedDevice.id
       );
@@ -87,7 +88,6 @@ export const useDeviceStore = defineStore('device', () => {
     try {
       await axios.delete(`http://localhost:3007/koerber/devices/${id}`);
       const deviceIndex = state.value.devices.findIndex((device: Device) => device.id === id);
-      console.log(deviceIndex);
       state.value.devices.splice(deviceIndex, 1);
       state.value.showAddDeviceModal = false;
     } catch (error) {

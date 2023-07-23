@@ -55,6 +55,9 @@ const capitalize = (str: string) => {
     <div v-if="loading" class="text-center pt-96">
       <span class="loading loading-ring loading-lg text-primary"></span>
     </div>
+    <div v-else-if="!filterDevices.length">
+      <h3 class="text-center font-bold text-xl pt-96">No devices found</h3>
+    </div>
     <div v-else class="overflow-x-auto">
       <table class="table table-md table-pin-rows table-pin-cols">
         <thead>
