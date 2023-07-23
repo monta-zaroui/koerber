@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Device, newDevice } from '../models/device.model';
+import { type Device, newDevice } from '../models/device.model';
 import axios, { AxiosError } from 'axios';
 import { computed, ref } from 'vue';
 import { SortConfig } from '../models/sort.model';
@@ -34,7 +34,7 @@ export const useDeviceStore = defineStore('device', () => {
       });
     }
     return state.value.devices.filter((device: Device) => {
-      const item: string = device[state.value.filterValue as keyof Device].toString().toLowerCase();
+      const item: string = device[state.value.filterValue as keyof Device]!.toString().toLowerCase();
       return item.includes(state.value.searchValue.toLowerCase());
     });
   });
@@ -42,8 +42,8 @@ export const useDeviceStore = defineStore('device', () => {
   async function fetchDevices(): Promise<void> {
     state.value.loading = true;
     try {
-      const response = await axios.get<Device[]>('http://localhost:3007/koerber/devices');
-      state.value.devices = response.data;
+      const { data } = await axios.get<Device[]>('http://localhost:3007/koerber/devices');
+      state.value.devices = data as Device[];
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
@@ -51,10 +51,13 @@ export const useDeviceStore = defineStore('device', () => {
     }
   }
 
-  async function addDevice(device: Device): Promise<void> {
+  async function addDevice(): Promise<void> {
     state.value.loading = true;
     try {
-      await axios.post('http://localhost:3007/koerber/devices', device);
+      const { data } = await axios.post<Device>('http://localhost:3007/koerber/devices', state.value.selectedDevice);
+      state.value.devices.push(data as Device);
+      resetSelectedDevice();
+      state.value.showAddDeviceModal = false;
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
@@ -68,7 +71,7 @@ export const useDeviceStore = defineStore('device', () => {
       await axios.put('http://localhost:3007/koerber/devices', state.value.selectedDevice);
       const index = state.value.devices.findIndex((device: Device) => device.id === state.value.selectedDevice.id);
       Object.assign(state.value.devices[index], state.value.selectedDevice);
-      state.value.selectedDevice = { ...newDevice } as Device;
+      resetSelectedDevice();
       state.value.showAddDeviceModal = false;
     } catch (error) {
       state.value.error = error as AxiosError;
@@ -91,10 +94,14 @@ export const useDeviceStore = defineStore('device', () => {
     const { column, order } = config;
     state.value.devices.sort((a: Device, b: Device) => {
       if (order === 'asc') {
-        return a[column] > b[column] ? 1 : -1;
+        return a[column]! > b[column]! ? 1 : -1;
       }
-      return a[column] < b[column] ? 1 : -1;
+      return a[column]! < b[column]! ? 1 : -1;
     });
+  }
+
+  function resetSelectedDevice(): void {
+    state.value.selectedDevice = { ...newDevice } as Device;
   }
 
   return {

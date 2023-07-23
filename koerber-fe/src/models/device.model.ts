@@ -4,7 +4,7 @@ export enum DEVICE_TYPE {
   CAMERA = 'CAMERA'
 }
 export interface Device {
-  id: string;
+  id?: string;
   name: string;
   type: DEVICE_TYPE;
   ownerName: string;

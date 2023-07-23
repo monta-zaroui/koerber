@@ -4,7 +4,7 @@ import BaseNavBar from './components/BaseNavBar.vue';
 import BaseInput from './components/BaseInput.vue';
 import { useDeviceStore } from './stores/device.ts';
 import BaseDropdown from './components/BaseDropdown.vue';
-import DeviceModal from './components/DeviceModal.vue';
+import DeviceModalContainer from './components/DeviceModalContainer.vue';
 import { filterDropdownItems } from './utils/constants/filter-dropdown-items';
 
 const deviceStore = useDeviceStore();
@@ -19,7 +19,7 @@ const deviceStore = useDeviceStore();
           <BaseDropdown v-model="deviceStore.state.filterValue" :items="filterDropdownItems" />
         </div>
         <div class="w-full">
-          <DeviceModal />
+          <DeviceModalContainer />
         </div>
       </div>
     </BaseNavBar>
