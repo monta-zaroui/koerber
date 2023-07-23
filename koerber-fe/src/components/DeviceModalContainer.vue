@@ -5,6 +5,7 @@ import DeviceModal from './DeviceModal.vue';
 const deviceStore = useDeviceStore();
 const toggleModal = () => {
   deviceStore.state.showAddDeviceModal = !deviceStore.state.showAddDeviceModal;
+  deviceStore.resetSelectedDevice();
 };
 </script>
 

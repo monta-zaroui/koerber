@@ -57,7 +57,6 @@ export const useDeviceStore = defineStore('device', () => {
       console.log('state.value.selectedDevice', state.value.selectedDevice);
       const { data } = await axios.post<Device>('http://localhost:3007/koerber/devices', state.value.selectedDevice);
       state.value.devices.push(data as Device);
-      resetSelectedDevice();
       state.value.showAddDeviceModal = false;
     } catch (error) {
       state.value.error = error as AxiosError;
@@ -74,7 +73,6 @@ export const useDeviceStore = defineStore('device', () => {
         (device: Device) => device.id === state.value.selectedDevice.id
       );
       Object.assign(state.value.devices[deviceIndex], state.value.selectedDevice);
-      resetSelectedDevice();
       state.value.showAddDeviceModal = false;
     } catch (error) {
       state.value.error = error as AxiosError;
@@ -123,6 +121,7 @@ export const useDeviceStore = defineStore('device', () => {
     sortDevices,
     addDevice,
     updateDevice,
-    deleteDevice
+    deleteDevice,
+    resetSelectedDevice
   };
 });
