@@ -16,7 +16,7 @@ docker compose up --build
 
 In your terminal run:
 ```bash
-npm run test
+cd koerber-be && npm install && npm run test
 ```
 The application will run by default on ports 3007 and 8007. there are 2 endpoints in the project:
 
