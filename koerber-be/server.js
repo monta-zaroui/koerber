@@ -7,5 +7,5 @@ dotenv.config();
 
 const server = http.createServer(app);
 
-server.listen(process.env.PORT || 3000);
-console.log(`Running on ${process.env.PORT || 3000} !`);
+server.listen(process.env.PORT || 3007);
+console.log(`Running on ${process.env.PORT || 3007} !`);
