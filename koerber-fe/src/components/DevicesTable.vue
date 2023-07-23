@@ -101,7 +101,7 @@ const capitalize = (str: string) => {
                 <font-awesome-icon :icon="['fas', 'edit']" />
               </div>
               <div class="hover:cursor-pointer">
-                <font-awesome-icon :icon="['fas', 'trash']" />
+                <font-awesome-icon :icon="['fas', 'trash']" @click="deviceStore.deleteDevice(device.id!)" />
               </div>
             </td>
           </tr>

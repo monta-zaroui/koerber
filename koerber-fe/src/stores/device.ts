@@ -69,8 +69,10 @@ export const useDeviceStore = defineStore('device', () => {
     state.value.isCreatingOrUpdating = true;
     try {
       await axios.put('http://localhost:3007/koerber/devices', state.value.selectedDevice);
-      const index = state.value.devices.findIndex((device: Device) => device.id === state.value.selectedDevice.id);
-      Object.assign(state.value.devices[index], state.value.selectedDevice);
+      const deviceIndex = state.value.devices.findIndex(
+        (device: Device) => device.id === state.value.selectedDevice.id
+      );
+      Object.assign(state.value.devices[deviceIndex], state.value.selectedDevice);
       resetSelectedDevice();
       state.value.showAddDeviceModal = false;
     } catch (error) {
@@ -81,13 +83,17 @@ export const useDeviceStore = defineStore('device', () => {
   }
 
   async function deleteDevice(id: string): Promise<void> {
-    state.value.loading = true;
+    state.value.isCreatingOrUpdating = true;
     try {
       await axios.delete(`http://localhost:3007/koerber/devices/${id}`);
+      const deviceIndex = state.value.devices.findIndex((device: Device) => device.id === id);
+      console.log(deviceIndex);
+      state.value.devices.splice(deviceIndex, 1);
+      state.value.showAddDeviceModal = false;
     } catch (error) {
       state.value.error = error as AxiosError;
     } finally {
-      state.value.loading = false;
+      state.value.isCreatingOrUpdating = false;
     }
   }
   function sortDevices(config: SortConfig<Device>): void {
