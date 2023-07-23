@@ -30,12 +30,19 @@ const addOrUpdateDevice = () => {
 const toggleModal = () => {
   emit('toggle');
 };
+
+const formTitle = computed(() => {
+  if (selectedDevice.value.id) {
+    return 'Edit Device';
+  }
+  return 'Create new device';
+});
 </script>
 
 <template>
   <div v-if="deviceStore.state.showAddDeviceModal" class="modal modal-open">
     <div class="modal-box">
-      <h3 class="font-bold text-xl">Create new device</h3>
+      <h3 class="font-bold text-xl">{{ formTitle }}</h3>
       <div class="py-2 w-full">
         <BaseInput v-model="selectedDevice.name" placeholder="Device Name" type="text" class="w-full py-2" />
         <BaseDropdown
