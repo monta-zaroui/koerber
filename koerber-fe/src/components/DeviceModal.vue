@@ -13,7 +13,10 @@ const emit = defineEmits(['toggle']);
 const deviceBeforeUpdate = { ...selectedDevice.value };
 
 const isSaveButtonDisabled = computed(() => {
-  return JSON.stringify(deviceBeforeUpdate) === JSON.stringify(selectedDevice.value);
+  if (selectedDevice.value.id) {
+    return JSON.stringify(deviceBeforeUpdate) === JSON.stringify(selectedDevice.value);
+  }
+  return !selectedDevice.value.name || !selectedDevice.value.ownerName;
 });
 
 const addOrUpdateDevice = () => {
