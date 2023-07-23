@@ -13,6 +13,9 @@ async function connectWithRetry() {
         host: config.host,
         dialect: 'postgres',
         port: config.port,
+        define: {
+          timestamps: false
+        }
       });
 
       await sequelize.authenticate();
