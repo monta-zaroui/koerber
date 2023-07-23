@@ -34,14 +34,14 @@ const toggleModal = () => {
     <div class="modal-box">
       <h3 class="font-bold text-xl">Create new device</h3>
       <div class="py-2 w-full">
-        <BaseInput v-model="selectedDevice.name" placeholder="Devince Name" type="text" class="w-full py-2" />
+        <BaseInput v-model="selectedDevice.name" placeholder="Device Name" type="text" class="w-full py-2" />
         <BaseDropdown
           v-model="selectedDevice.type"
           :items="deviceTypeDropdownItems"
           placeholder="Device Type"
           class="w-full"
         />
-        <BaseInput v-model="selectedDevice.ownerName" placeholder="Devince Name" type="text" class="w-full py-2" />
+        <BaseInput v-model="selectedDevice.ownerName" placeholder="Owner Name" type="text" class="w-full py-2" />
         <h3 class="font-bold text-md py-2">Battery status: {{ selectedDevice.batteryStatus }}%</h3>
         <input
           type="range"

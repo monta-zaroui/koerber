@@ -45,10 +45,10 @@ const create = async (device) => {
  * @property {number} device.batteryStatus
  * @returns {Device}
  */
-const edit = async (deviceId, device) => {
+const edit = async (device) => {
   return await Device.update(device, {
     where: {
-      id: deviceId
+      id: device.id
     }
   });
 };

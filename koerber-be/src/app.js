@@ -17,6 +17,6 @@ sequelize.sync().then(() => {
   console.log('Database & tables created!');
 });
 
-app.use('/', routes);
+app.use('/koerber', routes);
 
 export default app;

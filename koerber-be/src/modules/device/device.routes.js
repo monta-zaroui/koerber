@@ -65,13 +65,12 @@ router.post('/', async (req, res) => {
 /**
  * PATCH /devices/{id}
  * @summary Update a device
- * @param {number} id - id of device
  * @param {Device} request.body.required - Device object
  * @return {Device} 200 - Device object
  */
-router.patch('/:id', async (req, res) => {
+router.patch('/', async (req, res) => {
   try {
-    const device = await deviceController.edit(req.params.id, req.body);
+    const device = await deviceController.edit(req.body);
     return res.status(httpStatus.OK).json(device);
   } catch (error) {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json(error.message);
