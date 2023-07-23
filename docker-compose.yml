@@ -25,5 +25,4 @@ services:
       - PGPORT=5432
     depends_on:
       - db
-    command: sh -c "sleep 10 && npm start" #
 
